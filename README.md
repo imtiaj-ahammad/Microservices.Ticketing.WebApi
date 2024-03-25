@@ -23,7 +23,7 @@
 
 
 Here is a simple demonstration of work-flow in a basic RabbitMQ setup. Here consumer#3 is offline for a specific time. This does not in any way affect the integrity of the system. Even if all the consumers are offline, the messages are still in RabbitMQ waiting for the consumers to come online and take the message off their particular queues.  
-![image of rabbitMQ flow](../Resources/readme_images/RabbitMQ-flow.png?raw-true)  
+![image of rabbitMQ flow](https://github.com/imtiaj-ahammad/Microservices.Ticketing.WebApi/blob/main/Resources/readme_images/RabbitMQ-flow.png?raw-true)  
 
 
 
@@ -64,10 +64,10 @@ net start RabbitMQ
 **Line#3** we stop the RabbitMQ service  
 **Line#4** we start the RabbitMQ service  
 That is it. Now Navigate to http://localhost:15672/. Here is where you can find the management dashboard of RabbitMQ running
-![image of rabbitMQ flow](../Resources/readme_images/RabbitMQ-dashboard.png?raw-true)
+![image of rabbitMQ flow](https://github.com/imtiaj-ahammad/Microservices.Ticketing.WebApi/blob/main/Resources/readme_images/RabbitMQ-dashboard.png?raw-true)
 
 The default credentials are guest/guest. Use this to login to your dashboard
-![image of rabbitMQ flow](../Resources/readme_images/RabbitMQ-dashboardDetails.png?raw-true)
+![image of rabbitMQ flow](https://github.com/imtiaj-ahammad/Microservices.Ticketing.WebApi/blob/main/Resources/readme_images/RabbitMQ-dashboardDetails.png?raw-true)
 
 You can see that our RabbitMQ server is up and running. We will go through the required tabs when we start setting up the entire application.
 
@@ -171,7 +171,7 @@ Now that our server is configured, let's build the actual microservices that can
     }
     ```
 RabbitMQ will create a new Exchange Queue for us and store the passed data within the server. Let's observe the RabbitMQ dashboard after posting the message via POSTMAN.
-![image of ticketQueue Exchange](../Resources/readme_images/RabbitMQ-Exchange.png?raw-true)
+![image of ticketQueue Exchange](https://github.com/imtiaj-ahammad/Microservices.Ticketing.WebApi/blob/main/Resources/readme_images/RabbitMQ-Exchange.png?raw-true)
 You can see that RabbitMQ has created a new Exchange for us named 'ticketQueue'. It is also important to note that since we do not have a subscriber yet for this publisher, the message we passed is not seen.  
 
 10. Let us build a consumer. Create a new ASP.NET Core WebAPI project and name it **TicketProcessor.Microservice**. This microservice will be responsible for consuming the incoming messages from RabbitMQ server and process it further.
@@ -247,11 +247,11 @@ This is a very simple consumer that implements the **IConsumer** of the **MassTr
 - Put a breakpoint at the consumer class and at the **ticketcontroller** to verify the received data
 - Try to pass some sample data to make a request
 - Once the request is processed by the producer, the request will be stored in the RabbitMQ server
-![image of ticketQueue Queue](../Resources/readme_images/RabbitMQ-ticketQueue.png?raw-true)
-![image of ticketQueue Queue Details ](../Resources/readme_images/RabbitMQ-ticketQueueDetails.png?raw-true)
+![image of ticketQueue Queue](https://github.com/imtiaj-ahammad/Microservices.Ticketing.WebApi/blob/main/Resources/readme_images/RabbitMQ-ticketQueue.png?raw-true)
+![image of ticketQueue Queue Details ](https://github.com/imtiaj-ahammad/Microservices.Ticketing.WebApi/blob/main/Resources/readme_images/RabbitMQ-ticketQueueDetails.png?raw-true)
 - Run the consumer project after sometime and wait at the breakpoint to hold
 - Once the consumer is online, the request from the rabbitMQ server will be released into the consumer project
-![image of ticketQueue Queue Details ](../Resources/readme_images/RabbitMQ-ticketQueueDetailsAfterReleased.png?raw-true)
+![image of ticketQueue Queue Details ](https://github.com/imtiaj-ahammad/Microservices.Ticketing.WebApi/blob/main/Resources/readme_images/RabbitMQ-ticketQueueDetailsAfterReleased.png?raw-true)
 
 
-#### Reference: https://codewithmukesh.com/blog/rabbitmq-with-aspnet-core-microservice/
+##### Reference: https://codewithmukesh.com/blog/rabbitmq-with-aspnet-core-microservice/
